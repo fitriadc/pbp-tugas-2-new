@@ -2,15 +2,16 @@
 
  {% block content %}
 
-  <h1>Lab 1 Assignment PBP/PBD</h1>
+ <center><h1>Lab 1 Assignment PBP/PBD</h1></center>
 
-  <h5>Name: </h5>
-  <p>Fitria Dwi Cahya</p>
+  <h3>Name: </h3>
+  <p>{{name}}</p>
 
-  <h5>Student ID: </h5>
-  <p>2106751410</p>
+  <h3>Student ID: </h3>
+  <p>{{studentId}}</p>
 
-  <table>
+  <center><h2>Katalogku</h2></center>
+  <table border="1" cellspacing="2" cellpadding="8" align="left">
     <tr>
       <th>Item Name</th>
       <th>Item Price</th>
@@ -21,12 +22,12 @@
     </tr>
     {% for barang in list_barang %} 
     <tr>
-      <th>Item Name : {{barang.item_name}}</th>
-      <th>Item Price : {{barang.item_price}}</th>
-      <th>Item Stock : {{barang.item_stock}}</th>
-      <th>Rating : {{barang.rating}}</th>
-      <th>Description : {{barang.description}}</th>
-      <th>Item URL : {{barang.item_url}}</th>
+      <td align="left">{{barang.item_name}}</td>
+      <td align="right"> {{barang.item_price}}</td>
+      <td align="center">{{barang.item_stock}}</td>
+      <td align="center">{{barang.rating}}</td>
+      <td align="left"> {{barang.description}}</td>
+      <td align="left"> <a href="{{barang.item_url}}">{{barang.item_url}}</a></td>
     </tr>
     {% endfor %}
   </table>

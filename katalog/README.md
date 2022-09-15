@@ -1,6 +1,6 @@
-# TUGAS 2: Pengenalan Aplikasi Django dan Models View Template (MVT) pada Django
+# Pengenalan Aplikasi Django dan Models View Template (MVT) pada Django
 
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+Tugas 2 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
 Nama : Fitria Dwi Cahya
 

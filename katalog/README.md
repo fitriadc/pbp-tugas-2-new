@@ -14,7 +14,7 @@ Kelas : PBP - D
 
 ## Bagan request client ke web aplikasi dan responnya
 
-![Bagan](https://github.com/fitriadc/tugas-2-pbp-2022/blob/main/katalog/images/Bagan.jpg)
+![Bagan](images/Bagan.jpg "bagan-image")
 
 Django merupakan framework web development berbasis Python dengan mengikuti pola arsitektur Model–Template–Views (MVT). Ketika user melakukan request, user akan mengirim request dengan mengakses URL. URL akan ditangkap oleh (Urls.py) dan akan dilakukan screening url di URLConf untuk memeriksa ketersediaan request tersebut pada fungsi yang sesuai di Views(views.py). Jika request tersedia, maka request akan diproses. Url(url.py) akan menghubungkan url pada browser ke Views(views.py). Dalam request tersebut, user dapat memerlukan data yang berasal dari database. Jika demikian, maka Views (views.py) akan mencari data tersebut pada Models(models.py). Models berfungsi sebagai representasi dari database yang mengembalikan data yang dibutuhkan user. Sementara itu, Views berfungsi sebagai penghubung Models dengan Template karena data dari Models akan dikirimkan ke Template (file.html). Views akan mencarikan file HTML yang sesuai dengan request user di folder templates. Templates (html) akan menampilkan request user untuk dilihat pada tampilan di browser. Views juga akan mengirimkan HTML response ke user.
 

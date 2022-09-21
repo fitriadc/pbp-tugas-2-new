@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+ <center><h1>Assignment 3 PBP/PBD My Watch Lists</h1></center>
+
+  <h3>Name: </h3>
+  <p>{{name}}</p>
+
+  <h3>Student ID: </h3>
+  <p>{{studentId}}</p>
+
+  <center><table border="1" cellspacing="2" cellpadding="8" align="left">
+    <tr>
+      <th>Watched</th>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Release_date</th>
+      <th>Review</th>
+    </tr>
+    {% for mywatchlist in data_mywatchlist %} 
+    <tr>
+      <td align="left">{{mywatchlist.watched}}</td>
+      <td align="left"> {{mywatchlist.title}}</td>
+      <td align="center">{{mywatchlist.rating}}</td>
+      <td align="center">{{mywatchlist.release_date}}</td>
+      <td align="left"> {{mywatchlist.review}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <center>
+ {% endblock content %}

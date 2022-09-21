@@ -1,0 +1,112 @@
+[{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 1,
+    "fields": {
+        "watched": true,
+        "title": "Peter Pan",
+        "rating": 4,
+        "release_date": "2003-07-06",
+        "review": "A tightrope, acknowledging both innocence and approaching adulthood, and Roger is right."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 2,
+    "fields": {
+        "watched": true,
+        "title": "Dilan",
+        "rating": 5,
+        "release_date": "2020-09-07",
+        "review": "This movie captures the soul of the times perfectly."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 3,
+    "fields": {
+        "watched": false,
+        "title": "La La Land",
+        "rating": 5,
+        "release_date": "2022-05-24",
+        "review": "It had some peppy musical moments, vivid scenes, colorful costumes and had a warm spirit about it. "
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 4,
+    "fields": {
+        "watched": true,
+        "title": "Tenggelamnya Kapal Van Der Wick",
+        "rating": 5,
+        "release_date": "2012-08-24",
+        "review": "There are no reviews yet. Be the first one to write a review."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 5,
+    "fields": {
+        "watched": false,
+        "title": "Munafik 5",
+        "rating": 3,
+        "release_date": "2022-07-15",
+        "review": "A haunted house, an exorcist and a trip to a haunted location."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 6,
+    "fields": {
+        "watched": false,
+        "title": "Lady Bird",
+        "rating": 2,
+        "release_date": "2022-08-25",
+        "review": "Artistically inclined, with an explosive mix of sensitivity, alienation and martyred self-importance."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 7,
+    "fields": {
+        "watched": true,
+        "title": "5 cm",
+        "rating": 5,
+        "release_date": "2022-06-01",
+        "review": "Some adventure aspects about 5 best friends who go on a mountain climbing."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 8,
+    "fields": {
+        "watched": false,
+        "title": "Paranormal Activity: Next of Kin",
+        "rating": 2,
+        "release_date": "2018-06-29",
+        "review": "Tired sequel in gory found-footage horror series."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 9,
+    "fields": {
+        "watched": true,
+        "title": "Thor: Love and Thunder",
+        "rating": 3,
+        "release_date": "2020-07-27",
+        "review": "The plot is funny and the scenes with the human Thor."
+    }
+},
+{
+    "model": "mywatchlist.mywatchlist",
+    "pk": 10,
+    "fields": {
+        "watched": false,
+        "title": "Guardiance of galaxy.",
+        "rating": 4,
+        "release_date": "2022-07-24",
+        "review": "A fun, no-frills single-player campaign full of cosmic comic book flavor.."
+    }
+}
+
+]

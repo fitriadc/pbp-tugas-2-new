@@ -5,15 +5,13 @@ Tugas 3 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakult
 ## Creator
 
 > Nama : Fitria Dwi Cahya
-
 > NPM : 2106751410
-
 > Kelas : PBP - D
 
 ## Link Deployment:
 
-[HTML page 🚀](https://new-catalog-app.herokuapp.com/mywatchlist/html)
-[XML page 🚀](https://new-catalog-app.herokuapp.com/mywatchlist/xml)
+[HTML page 🚀](https://new-catalog-app.herokuapp.com/mywatchlist/html) |
+[XML page 🚀](https://new-catalog-app.herokuapp.com/mywatchlist/xml) |
 [JSON page 🚀](https://new-catalog-app.herokuapp.com/mywatchlist/json)
 
 ## Perbedaan JSON, XML, dan HTML
@@ -277,29 +275,31 @@ Secara umum, platform seperti website atau aplikasi tersusun atas bagian fronten
 
 4. Membuat fungsi yang akan mengembalikan file JSON dari database dan file XML dari database.
 
-````python
+   ````python
    def show_json(request):
+     data = WatchList.objects.all()
+     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+   def show_xml(request):
       data = WatchList.objects.all()
-      return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-    def show_xml(request):
-       data = WatchList.objects.all()
-       return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
-    def show_json_by_id(request, id):
+      return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+   def show_json_by_id(request, id):
+     data = WatchList.objects.filter(pk=id)
+     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+   def show_xml_by_id(request, id):
       data = WatchList.objects.filter(pk=id)
-      return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-    def show_xml_by_id(request, id):
-       data = WatchList.objects.filter(pk=id)
-       return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
-    ```
+      return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+   ```
+   ````
 
 ## Membuat sebuah file HTML mywatchlist.html pada templates
 
-1. Membuat folder ` template`  di dalam direktori mywatchlist dan membuat file mywatchlist.html. Kemudian salin dan tempel code ke dalam file.
+1. Membuat folder ` template` di dalam direktori mywatchlist dan membuat file mywatchlist.html. Kemudian salin dan tempel code ke dalam file.
 
    ```html
    {% extends 'base.html' %}
+   ```
 
- {% block content %}
+{% block content %}
 
  <center><h1>Assignment 3 PBP/PBD My Watch Lists</h1></center>
 
@@ -331,9 +331,9 @@ Secara umum, platform seperti website atau aplikasi tersusun atas bagian fronten
     {% endfor %}
   </table>
   <center>
- {% endblock content %}
+  {% endblock content %}
 
-````
+    ````
 
 ## Membuat routing untuk memetakan fungsi yang telah dibuat pada views.py.
 
@@ -367,18 +367,19 @@ Secara umum, platform seperti website atau aplikasi tersusun atas bagian fronten
 2. Salin dan paste kode berikut.
 
    ```python
-   class MyWatchListTest(TestCase):
-    def test_url_html(self):
-        res = Client().get('/mywatchlist/html/')
-        self.assertEqual(res.status_code, 200)
+    class MyWatchListTest(TestCase):
+      def test_url_html(self):
+          res = Client().get('/mywatchlist/html/')
+          self.assertEqual(res.status_code, 200)
 
-    def test_url_json(self):
-        res = Client().get('/mywatchlist/json/')
-        self.assertEqual(res.status_code, 200)
+      def test_url_json(self):
+          res = Client().get('/mywatchlist/json/')
+          self.assertEqual(res.status_code, 200)
 
-    def test_url_xml(self):
-        res = Client().get('/mywatchlist/xml/')
-        self.assertEqual(res.status_code, 200)
+      def test_url_xml(self):
+          res = Client().get('/mywatchlist/xml/')
+          self.assertEqual(res.status_code, 200)
+
    ```
 
 3. Misal, muncul output diterminal : `Ran 4 tests in 0.005s`. Tandanya testnya berhasil

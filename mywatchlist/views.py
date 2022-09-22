@@ -11,9 +11,10 @@ def show_mywatchlist(request):
     countWatched = 0
     countNotWatched = 0
 
-    # Fitur yang menampilkan pesan
+    # Fitur untuk menampilkan pesan
     message = ""
 
+    # Menghitung jumlah film yang telah ditonton
     for alreadyWatched in mywatchlist_data:
         if (alreadyWatched.watched == True):
             countWatched += 1

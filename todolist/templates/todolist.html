@@ -2,38 +2,46 @@
 
  {% block content %}
 
- <center><h1>Assignment 4 PBP : Todolist </h1></center>
+ <center><h1>My Todolist </h1></center>
 
-  <h3>Name: </h3>
-  <p>{{name}}</p>
-
-  <h3>Student ID: </h3>
-  <p>{{studentId}}</p>
+  <h3> Nice to meet You, {{username}} ! </h3>
+  <h4> Sesi terakhir login: {{ last_login }}</h4>
  
-  <center><h2> Todolist </h2> </center>
+  <center><h2> Lets Organize Your Task Better! </h2> </center>
+
+  <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
+  <button>  <a href="{% url 'todolist:create_todo' %}">Add New Task</a> </button>
 
   <center><table border="1" cellspacing="2" cellpadding="8" align="left">
     <tr>
-      <th>Watched</th>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>Release_date</th>
-      <th>Review</th>
+      <th>Date Create</th>
+      <th>Task Name</th>
+      <th>Description</th>
+      <th>Status</th>
     </tr>
-    {% for mywatchlist in data_mywatchlist %} 
+    {% for task in data_todolist %} 
     <tr>
-      <td align="left">{{mywatchlist.watched}}</td>
-      <td align="left"> {{mywatchlist.title}}</td>
-      <td align="center">{{mywatchlist.rating}}</td>
-      <td align="center">{{mywatchlist.release_date}}</td>
-      <td align="left"> {{mywatchlist.review}}</td>
+      <td align="center">{{task.date}}</td>
+      <td align="left">{{task.title}}</td>
+      <td align="center">{{task.description}}</td>
+      {% if task.is_finished %}
+      <td> Finished </td>
+    {% else %}
+      <td> Unfinished  </td>
+    {% endif %}
+
+    <td>
+      <a href="update/{{task.pk}}"><button>Update Status</button></a>
+    </td>
+
+    <td>
+      <a href="delete/{{task.pk}}"><button>Delete Task</button></a>
+    </td>
+
     </tr>
     {% endfor %}
   </table>
-  <h5>Sesi terakhir login: {{ last_login }}</h5>
-  <button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
 
   <center>
  {% endblock content %}
 
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>

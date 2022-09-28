@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 
 class Todolist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(datetime.now())
+    date = models.DateField(datetime.now, default=datetime.now)
     title = models.CharField(max_length=280)
     description = models.TextField()
+    is_finished = models.BooleanField(default=False)

@@ -2,27 +2,26 @@
 
 {% block content %}
 
-<div class = "login">
+<center><h1>Assignment 4 PBP : Todolist </h1></center>
+ <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
 
-    <h1>Lets organize your task better!</h1>
-    <form method="POST" action="">
+  <h3> Nice to meet You, {{username}} ! </h3>
+  <h4> Sesi terakhir login: {{ last_login }}</h4>
+ 
+  <div class = "login">
+    <h1>Create New Task</h1>
+    <form method="POST" action ="">
         {% csrf_token %}
-        <table>
-            <tr>
-                <td>Judul: </td>
-                <td><input type="text" name="judul" placeholder="Judul" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Deskripsi: </td>
-                <td><input type="text" name="deksripsi" placeholder="Deskripsi" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Tambah"></td>
-            </tr>
-        </table>
+        <div>
+            
+            <label for="title">Task Title: </label>
+            <input id="title" type="text" name="title" placeholder="Title" required>
+        </div>
+        <div>
+            <label for="description">Description: </label>
+            <input id="description" type="text" name="description" placeholder="Description" required>
+        </div>
+        <input type="submit" value="Create">
     </form>
 
 </div>

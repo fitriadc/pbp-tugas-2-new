@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
+from re import T
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -14,24 +14,25 @@ from django.urls import reverse
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
-    todolist_data = Todolist.objects.all()
     username = request.user.username
+    #id = request.user.id
+    todo = Todolist.objects.filter(user=request.user)
     context = {
-        'name': 'Fitria Dwi Cahya',
-        'studentId': "2106751410",
-        'data_todolist': todolist_data,
-        'username': username
+        'data_todolist': todo,
+        'username': username,
+        # 'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
 
 
 def create_todo(request):
     if request.method == "POST":
-        judul = request.POST.get("judul")
-        deskripsi = request.POST.get("deskripsi")
-        user = request.user
-        new_todo = Todolist(user=user, title=judul, description=deskripsi)
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        new_todo = Todolist(user=request.user, title=title,
+                            description=description)
         new_todo.save()
+        return redirect('todolist:show_todolist')
     return render(request, "create_todo.html")
 
 
@@ -60,7 +61,7 @@ def login_user(request):
                 reverse("todolist:show_todolist"))  # membuat response
             # membuat cookie last_login dan menambahkannya ke dalam response
             response.set_cookie('last_login', str(datetime.datetime.now()))
-            return redirect('todolist:show_todolist')
+            return response
         else:
             messages.info(request, 'Username atau Password salah!')
     context = {}
@@ -71,4 +72,20 @@ def logout_user(request):
     logout(request)
     response = HttpResponseRedirect(reverse('todolist:login'))
     response.delete_cookie('last_login')
-    return redirect('todolist:login')
+    return response
+
+
+def update_task_status(request, id):
+    task = Todolist.objects.get(pk=id)
+    if task.is_finished:
+        task.is_finished = False
+    else:
+        task.is_finished = True
+    task.save()
+    return redirect('todolist:show_todolist')
+
+
+def delete_task(request, id):
+    task = Todolist.objects.get(pk=id)
+    task.delete()
+    return redirect('todolist:show_todolist')

@@ -2,12 +2,9 @@
 
  {% block content %}
 
- <center><h1>My Todolist </h1></center>
-
-  <h3> Nice to meet You, {{username}} ! </h3>
-  <h4> Sesi terakhir login: {{ last_login }}</h4>
- 
+ <center><h1>My Todolist </h1></center> 
   <center><h2> Lets Organize Your Task Better! </h2> </center>
+  <h3> Welcome, {{username}} ! </h3>
 
   <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
   <button>  <a href="{% url 'todolist:create_todo' %}">Add New Task</a> </button>

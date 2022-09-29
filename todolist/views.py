@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from todolist.models import Todolist
+from todolist.models import Task
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -16,7 +16,7 @@ from django.urls import reverse
 def show_todolist(request):
     username = request.user.username
     #id = request.user.id
-    todo = Todolist.objects.filter(user=request.user)
+    todo = Task.objects.filter(user=request.user)
     context = {
         'data_todolist': todo,
         'username': username,
@@ -29,8 +29,8 @@ def create_todo(request):
     if request.method == "POST":
         title = request.POST.get("title")
         description = request.POST.get("description")
-        new_todo = Todolist(user=request.user, title=title,
-                            description=description)
+        new_todo = Task(user=request.user, title=title,
+                        description=description)
         new_todo.save()
         return redirect('todolist:show_todolist')
     return render(request, "create_todo.html")
@@ -76,7 +76,7 @@ def logout_user(request):
 
 
 def update_task_status(request, id):
-    task = Todolist.objects.get(pk=id)
+    task = Task.objects.get(pk=id)
     if task.is_finished:
         task.is_finished = False
     else:
@@ -86,6 +86,6 @@ def update_task_status(request, id):
 
 
 def delete_task(request, id):
-    task = Todolist.objects.get(pk=id)
+    task = Task.objects.get(pk=id)
     task.delete()
     return redirect('todolist:show_todolist')

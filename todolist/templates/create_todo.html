@@ -2,14 +2,10 @@
 
 {% block content %}
 
-<center><h1>Assignment 4 PBP : Todolist </h1></center>
- <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
-
-  <h3> Nice to meet You, {{username}} ! </h3>
-  <h4> Sesi terakhir login: {{ last_login }}</h4>
+<center><h1>My Todolist </h1></center> 
+<center><h2> Lets Create Your New Task! </h2> </center>
  
-  <div class = "login">
-    <h1>Create New Task</h1>
+  <div class = "create_todo">
     <form method="POST" action ="">
         {% csrf_token %}
         <div>
@@ -23,7 +19,7 @@
         </div>
         <input type="submit" value="Create">
     </form>
-
+    <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
 </div>
 
 {% endblock content %}

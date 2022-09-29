@@ -50,15 +50,15 @@ Tugas 3 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakult
 
 ### Membuat aplikasi todolist di proyek tugas Django yang sudah digunakan sebelumnya.
 
-1. Pembuatan django app `todolist` dengan perintah `python manage.py startapp todolist`
+Pembuatan django app `todolist` dengan perintah `python manage.py startapp todolist`
 
 ### Menambahkan path todolist sehingga pengguna dapat mengakses http://localhost:8000/todolist.
 
-2. Menambahkan `path('', include('todolist.urls'))` pada urls.py di project_django. Selain itu tambahakan `'todolist',`pada `INSTALLED_APPS`pada settings.py di project_django.
+Menambahkan `path('', include('todolist.urls'))` pada urls.py di project_django. Selain itu tambahakan `'todolist',`pada `INSTALLED_APPS`pada settings.py di project_django.
 
 ### Membuat sebuah model Task dengan atribut user, date, title, dan description
 
-3. Membuat models.py dengan menambahkan beberapa atribut, atribut-atributnya adalah user, date, title, description, dan is_finished seperti berikut :
+Membuat models.py dengan menambahkan beberapa atribut, atribut-atributnya adalah user, date, title, description, dan is_finished seperti berikut :
 
 ```python
 class Task(models.Model):
@@ -69,11 +69,11 @@ class Task(models.Model):
     is_finished = models.BooleanField(default=False)
 ```
 
-4. Lakukan migrasi data untuk memasukan models dengan cara `python manage.py makemigration` dan `python manage.py migrate`.
+Lakukan migrasi data untuk memasukan models dengan cara `python manage.py makemigration` dan `python manage.py migrate`.
 
 ### Mengimplementasikan form registrasi, login, dan logout
 
-5. Membuat form registrasi menggunakan `UserCreationForm()` di views.py. kemudian membuat fungsi pada views.py untuk login dan logout yang diintegrasikan dengan form pada html dengan method POST. Berikut adalah fungsi yang diperlukan.
+Membuat form registrasi menggunakan `UserCreationForm()` di views.py. kemudian membuat fungsi pada views.py untuk login dan logout yang diintegrasikan dengan form pada html dengan method POST. Berikut adalah fungsi yang diperlukan.
 
 - Fungsi `show_todolist` untuk menghubungkan data user dan todolistnya ke file `todolist.html`
 
@@ -158,7 +158,7 @@ def logout_user(request):
 
 ```
 
-- (BONUS) Fungsi untuk memperbarui status pengerjaan tugas di todolist. User dapat merubah status pengerjaan dari belum selesai (unfinished) ke selesai(finishe) atau sebaliknya.
+- (BONUS) Fungsi untuk memperbarui status pengerjaan tugas di todolist. User dapat merubah status pengerjaan dari belum selesai (unfinished) ke selesai(finished) atau sebaliknya.
 
 ```python
 def update_task_status(request, id):
@@ -172,7 +172,7 @@ def update_task_status(request, id):
 
 ```
 
-- Fungsi untuk menghapus data tugas
+- (BONUS) Fungsi untuk menghapus data tugas.
 
 ```python
 def delete_task(request, id):
@@ -184,7 +184,7 @@ def delete_task(request, id):
 
 ### Membuat halaman utama todolist
 
-6. Membuat file `todolist.html`yang berisi label bertuliskan user yang terlogin, tombol untuk membuat task baru, tombol logout yang terhubung ke function logout, dan tabel dengan kolom sesuai attribute Task untuk menampilkan semua task dari user yang terlogin. Fungsi pada views.py akan melakukan render todolist.html yang sebelumnya perlu ditambahkan routing ke function tersebut.
+Membuat file `todolist.html`yang berisi label bertuliskan user yang terlogin, tombol untuk membuat task baru, tombol logout yang terhubung ke function logout, dan tabel dengan kolom sesuai attribute Task untuk menampilkan semua task dari user yang terlogin. Fungsi pada views.py akan melakukan render todolist.html yang sebelumnya perlu ditambahkan routing ke function tersebut.
 
 ```html
 <right>
@@ -226,7 +226,7 @@ def delete_task(request, id):
 
 ### Membuat halaman form untuk pembuatan task
 
-7. Saat membuat todolist baru diperlukan beberapa data baru seperti judul dan deskripsi. Melalui form dan fungsi `create_todo`pada views, data baru akan terbuat. Fungsi ini akan ditampilkan pada HTML berikut
+Saat membuat todolist baru diperlukan beberapa data baru seperti judul dan deskripsi. Melalui form dan fungsi `create_todo`pada views, data baru akan terbuat. Fungsi ini akan ditampilkan pada HTML berikut
 
 ```HTML
 <form method="POST" action="">
@@ -251,7 +251,7 @@ def delete_task(request, id):
 
 ### Membuat routing sehingga beberapa fungsi dapat diakses melalui URL tertentu
 
-9. Pada urls.py, tambahkan path ke dalam urlpatters
+Pada urls.py, tambahkan path ke dalam urlpatters
 
 ```python
  path('', show_todolist, name="show_todolist"),
@@ -265,11 +265,11 @@ def delete_task(request, id):
 
 ### Melakukan deployment aplikasi todolist ke Heroku
 
-10. Jalankan proyek Django dengan perintah python manage.py runserver dan bukalah http://localhost:8000/todolist di browser. Pastikan template todolist.html tampil dengan baik dan data dari model dapat dirender oleh views ke todolist.html. Lakukanlah tahapan `git add, commit, and push` terhadap changes yang kamu lakukan.
+Jalankan proyek Django dengan perintah python manage.py runserver dan bukalah http://localhost:8000/todolist di browser. Pastikan template todolist.html tampil dengan baik dan data dari model dapat dirender oleh views ke todolist.html. Lakukanlah tahapan `git add, commit, and push` terhadap changes yang kamu lakukan.
 
-### Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
+## Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
 
-11. Buka aplikasi [Todolist App 🧾](https://new-catalog-app.herokuapp.com/todolist). Kemudian buat 2 akun pengguna baru. Pada tiap akunnya lakukan login, kemudian buat 3 tugas baru dengan cara menekan tombol `Create New Task`. Di halaman Creat Your New Task, isi data yang dibutuhkan kemudian tekan tombol `Create` untuk menyimpan data. Pastikan data baru telah muncul pada tabel todolist di halaman utama.
+Buka aplikasi [Todolist App 🧾](https://new-catalog-app.herokuapp.com/todolist). Kemudian buat 2 akun pengguna baru. Pada tiap akunnya lakukan login, kemudian buat 3 tugas baru dengan cara menekan tombol `Create New Task`. Di halaman Creat Your New Task, isi data yang dibutuhkan kemudian tekan tombol `Create` untuk menyimpan data. Pastikan data baru telah muncul pada tabel todolist di halaman utama.
 
 ## Referensi
 

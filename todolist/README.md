@@ -269,6 +269,8 @@ def delete_task(request, id):
 
 ### Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
 
+11. Buka aplikasi [Todolist App 🧾](https://new-catalog-app.herokuapp.com/todolist). Kemudian buat 2 akun pengguna baru. Pada tiap akunnya lakukan login, kemudian buat 3 tugas baru dengan cara menekan tombol `Create New Task`. Di halaman Creat Your New Task, isi data yang dibutuhkan kemudian tekan tombol `Create` untuk menyimpan data. Pastikan data baru telah muncul pada tabel todolist di halaman utama.
+
 ## Referensi
 
 Flow Data 🧾 : [https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)

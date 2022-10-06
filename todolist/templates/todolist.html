@@ -19,8 +19,8 @@
       <div class="text-white hover:scale-105 duration-150 flex flex-col justify-between p-4 lg:w-[20rem] sm:w-[18rem] h-fit bg-fuchsia-700 box-shadow-md rounded-xl">
           <div>
           <h2 class="font-semibold lg:text-2xl sm:text-xl">{{task.title}}</h2>
-          <h3 class="font-semibold lg:text-sm sm:text-xs text-gray-300">{{task.description}}</h3>
-          <p class="font-semibold text-xs text-gray-300">created: {{task.date}}</p>
+          <h3 class="font-semibold lg:text-sm sm:text-xs text-gray-300">Description : {{task.description}}</h3>
+          <p class="font-semibold text-xs text-gray-300">Created: {{task.date}}</p>
           {% if task.is_finished%}
             <p class="text-lg font-bold text-blue-200">Finished ✅ </p>
           {% else %}

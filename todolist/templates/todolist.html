@@ -1,44 +1,42 @@
 {% extends 'base.html' %}
 
  {% block content %}
+  <div class = "bg-gradient-to-b from-white to-fuchsia-100 relative h-full w-screen flex flex-col justify-center mt-0 items-center">
+    <h1 class="absolute top-32 mb-1 lg:text-5xl sm:text-2xl text-center font-bold justify-center">My Todolist </h1>
+  <h2 class="absolute top-48 mb-1 lg:text-3xl sm:text-2xl text-center"> Lets Organize Your Task Better! 🤗 </h2> 
+  
 
- <center><h1>My Todolist </h1></center> 
-  <center><h2> Lets Organize Your Task Better! </h2> </center>
-  <h3> Welcome, {{username}} ! </h3>
+  <div class="absolute top-0  p-8 h-20 flex flex-row justify-between items-center w-screen  bg-fuchsia-900">
+    <h1 class="lg:text-2xl text-white sm:text-xl font-bold">Welcome, <h class="text-fuchsia-300">{{username}}👋 </h></h1>
+    <div class="flex flex-row items-center font-semibold lg:scale-100 sm:scale-75">
+      <a href="{% url 'todolist:create_todo' %}"><button class="m-1 text-white bg-fuchsia-500 mr-4 hover:bg-fuchsia-400 hover:cursor-pointer px-4 py-2 rounded-lg">Add New Task</button></a>
+      <a href="{% url 'todolist:logout' %}"><button class="m-1 bg-white hover:fuchsia-100 hover:cursor-pointer px-4 py-2 rounded-lg">Logout</button></a>
+    </div>
+  </div>
 
-  <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
-  <button>  <a href="{% url 'todolist:create_todo' %}">Add New Task</a> </button>
-
-  <center><table border="1" cellspacing="2" cellpadding="8" align="left">
-    <tr>
-      <th>Date Create</th>
-      <th>Task Name</th>
-      <th>Description</th>
-      <th>Status</th>
-    </tr>
-    {% for task in data_todolist %} 
-    <tr>
-      <td align="center">{{task.date}}</td>
-      <td align="left">{{task.title}}</td>
-      <td align="center">{{task.description}}</td>
-      {% if task.is_finished %}
-      <td> Finished </td>
-    {% else %}
-      <td> Unfinished  </td>
-    {% endif %}
-
-    <td>
-      <a href="update/{{task.pk}}"><button>Update Status</button></a>
-    </td>
-
-    <td>
-      <a href="delete/{{task.pk}}"><button>Delete Task</button></a>
-    </td>
-
-    </tr>
+  <div class="absolute top-64 mb-20 grid grid-flow-cols lg:grid-cols-4 sm:grid-cols-1 gap-5 p-5 rounded-xl">
+    {% for task in data_todolist %}
+      <div class="text-white hover:scale-105 duration-150 flex flex-col justify-between p-4 lg:w-[20rem] sm:w-[18rem] h-fit bg-fuchsia-700 box-shadow-md rounded-xl">
+          <div>
+          <h2 class="font-semibold lg:text-2xl sm:text-xl">{{task.title}}</h2>
+          <h3 class="font-semibold lg:text-sm sm:text-xs text-gray-300">{{task.description}}</h3>
+          <p class="font-semibold text-xs text-gray-300">created: {{task.date}}</p>
+          {% if task.is_finished%}
+            <p class="text-lg font-bold text-blue-200">Finished ✅ </p>
+          {% else %}
+            <p class="text-lg font-bold text-red-200">Unfinished ❎</p>
+          {% endif %}
+        </div>
+        <div class="flex flex-row text-sm lg:scale-100 sm:scale-60">
+          <a href="update/{{task.pk}}"><button class="font-semibold m-1 bg-fuchsia-300 hover:bg-fuchsia-200 hover:cursor-pointer h-7 w-20 rounded-md">Update</button></a>
+          <a href="delete/{{task.pk}}"><button class="font-semibold m-1 bg-red-500 hover:bg-red-700 hover:cursor-pointer h-7 w-20 rounded-md">Delete </button></a>
+        </div>
+      </div>
     {% endfor %}
-  </table>
+  </div>
 
-  <center>
+
+  </div>
+
  {% endblock content %}
 

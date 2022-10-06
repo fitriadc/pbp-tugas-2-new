@@ -274,3 +274,42 @@ Buka aplikasi [Todolist App 🧾](https://new-catalog-app.herokuapp.com/todolist
 ## Referensi
 
 Flow Data 🧾 : [https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms)
+
+# Web Design Using HTML, CSS, and CSS Framework
+
+## Perbedaan Inline, Internal, dan External CSS
+
+1. Inline CSS: kode CSS ditulis langsung pada atribut elemen HTML dengan cara mendeklarasikan atribut `style` pada tag HTML. Contoh: `<h1 style="color:orange;">Contoh dari inline CSS</h1>`
+   - Kelebihan: perubahan pada satu elemen HTML sehingga membantu memperbaiki kode dengan cepat.
+   - Kekurangan: struktur file HTML terlihat berantakan karena banyaknya styling dan style CSS hanya dapat diterapkan pada satu elemen HTML saja.
+2. Internal CSS: kode CSS ditulis di dalam tag style dan kode HTML dituliskan di bagian atas (header) file HTML dengan cara mendeklarasikan tag `<style>` di dalam `<head>` HTML, kemudian menulis kode css di dalam tag tersebut
+   - Kelebihan: tidak perlu membuat file CSS terpisah karena bisa langsung menambahkan styling CSS pada file HTML dan perubahan tersebut hanya berlaku pada satu halaman saja.
+   - Kekurangan: meningkatkan loading time pada website karena styling yang ditambahkan langsung pada file HTML, tidak efisien jika CSS yang sama ingin digunakan di beberapa file.
+3. External CSS: kode CSS ditulis terpisah dengan kode HTML, kita perlu pembuat file khusus berektensi `.css` dan menggunakan tag `<link>` pada head HTML untuk menghubungkan file HTMl dengan file khusus CSS yang terpisah.
+   - Kelebihan: ukuran file HTML lebih ringan dan kode lebih rapi. Selain itu, file khusus CSS dapat digunakan untuk banyak file HTML lainnya.
+   - Kekurangan: dibutuhkan waktu loading bagi laman website untuk membentuk styling yang ada di file CSS ke file HTML, selain itu jika proses ini gagal dilakukan maka halaman akan menjadi berantakan dan ekternal CSS diprioritaskan paling rendah dibanding CSS lain.
+
+## Tag HTML5
+
+1. `<textarea>`: multiline text input
+2. `<nav>`: navigasi pada website
+3. `<section>`: section pada website
+4. `<table>`: mendefinisikan sel di tabel
+5. `<footer>`: footer pada website
+6. `<main>`: main content pada website
+7. `<body>`: mendefinisikan body
+8. `a`: hyperlink ke halaman atau tautan lain
+9. `b` : membuat teks lebih tebal
+10. `<p>`: mendefinisikan paragraf
+
+## CSS selector
+
+1. ID: menggunakan `#` sebagai tanda id pada HTML
+2. Class : menggunakan `.` sebagai tanda class pada HTML
+3. Element: menggunakan nama tag HTML sebagai selector atau `#` atau `.`.
+
+## Implementasi checklist
+
+- Tambahkan tag `<link>` pada base.html untuk menggunakan CDN dari tailwind css.
+- Tambahkan styling dan membuatnya responsive pada file html untuk halaman registrasi, login, todolist, dan create_todo. Styling menggunakan tailwind.
+- Referensi 🧾 : [https://tailwindcss.com] tailwind documentation

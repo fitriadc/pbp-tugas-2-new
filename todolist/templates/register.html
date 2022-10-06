@@ -5,22 +5,20 @@
 {% endblock meta %}
 
 {% block content %}  
-
-<div class = "login">
-    
-    <h1>Formulir Registrasi</h1>  
-
+<h1 class="text-5xl font-bold mb-4"> Todolist App</h1>
+<h1 class="text-3xl font-normal mb-16">Account Registration</h1> 
+<div class="login flex flex-col drop-shadow-xl justify-center items-center bg-[#f6dbff] p-5 rounded-xl lg:scale-100 md:scale-90 scale-75">
         <form method="POST" >  
             {% csrf_token %}  
-            <table>  
+            <table class="rounded-lg  flex flex-col justify-center items-center">  
                 {{ form.as_table }}  
-                <tr>  
+                <tr class="rounded-lg mt-2 flex flex-col justify-center items-center">  
                     <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
+                    <td><input class="btn mt-8 rounded-lg hover:cursor-pointer h-8 w-60 bg-[#9900ff] hover:[#c56eff] mb-2 login_btn font-color-white" type="submit" name="submit" value="Daftar"/></td>  
                 </tr>  
             </table>  
         </form>
-
+        
     {% if messages %}  
         <ul>   
             {% for message in messages %}  

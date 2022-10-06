@@ -1,25 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<center><h1>My Todolist </h1></center> 
-<center><h2> Lets Create Your New Task! </h2> </center>
- 
-  <div class = "create_todo">
-    <form method="POST" action ="">
+<div class="relative  top-20 justify-center mt-0 items-center ">
+<h1 class="text-4xl justify-center mt-0 items-center font-bold mb-4">My Todolist </h1>
+<h1 class="text-2xl justify-center mt-0 items-center font-normal mb-16">Lets Create Your New Task!</h1>
+<div class="login drop-shadow-xl flex flex-col justify-center bg-[#f6dbff] p-8 rounded-xl lg:scale-120 md:scale-80 scale-60">
+    <form method="POST" action ="" class="flex flex-col ">
         {% csrf_token %}
-        <div>
-            
-            <label for="title">Task Title: </label>
-            <input id="title" type="text" name="title" placeholder="Title" required>
+        <div class="flex flex-col">
+            <label for="title" class="mb-2 font-semibold">Task Title       : </label>
+            <input class="md:w-80 w-60  h-8 p-4 rounded-lg mb-4  id="title" type="text" name="title" placeholder="Title" required>
         </div>
-        <div>
-            <label for="description">Description: </label>
-            <input id="description" type="text" name="description" placeholder="Description" required>
+        <div class="flex flex-col">
+            <label class="font-semibold mb-2 " for="description">Description: </label>
+            <input class="w-80 h-40 p-4 rounded-lg mb-4 " id="description" type="text" name="description" placeholder="Description" required>
         </div>
-        <input type="submit" value="Create">
+        <input class=" mt-3 btn rounded-lg hover:cursor-pointer h-10 w-28 bg-[#9900ff] hover:[#f0bfff] login_btn" type="submit" value="Create">
     </form>
-    <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right>
+     <!-- <right> <button><a href="{% url 'todolist:logout' %}">Logout</a></button> </right> -->
 </div>
-
+</div>
 {% endblock content %}

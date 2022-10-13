@@ -1,4 +1,5 @@
 from re import T
+from django.core import serializers
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -6,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from todolist.models import Task
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
 # Create your views here.
@@ -15,12 +16,10 @@ from django.urls import reverse
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
     username = request.user.username
-    #id = request.user.id
     todo = Task.objects.filter(user=request.user)
     context = {
         'data_todolist': todo,
         'username': username,
-        # 'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
 
@@ -89,3 +88,21 @@ def delete_task(request, id):
     task = Task.objects.get(pk=id)
     task.delete()
     return redirect('todolist:show_todolist')
+
+
+@login_required(login_url="/todolist/login")
+def show_todolist_json(request):
+    todo = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', todo), content_type='application/json')
+
+
+def create_todo_ajax(request):
+    if request.method == "POST":
+        new_todo = Task(
+            title=request.POST.get('title'),
+            description=request.POST.get("description"),
+            user=request.user,
+        )
+        new_todo.save()
+        return HttpResponse(b"Task Created!", status=201)
+    return HttpResponse("Invalid method", status_code=405)
